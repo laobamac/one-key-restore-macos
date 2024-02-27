@@ -44,6 +44,12 @@ function deal_choice($choice_number) {
         echo '1.全盘安装     2.分区安装（慎选！）'
         $choice_number_2 == Read-Host("请输入") # if中赋值第二层传参
     }
+
+    # 备份区域未添加，请等待后续版本 20240227
+    elseif ($choice_number == '2') {
+        echo '1.全盘备份     2.分区备份'
+        $choice_number_2 == Read-Host("请输入") # if中赋值第二层传参
+    }
 }
 
 # 主程序
