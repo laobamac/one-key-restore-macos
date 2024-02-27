@@ -24,7 +24,8 @@ function startting_print {
 
 # 获取硬盘列表方法
 function get_disks {
-
+$disk_list = Get-PhysicalDisk
+echo $disk_list
 }
 
 # 获取镜像列表方法
@@ -40,15 +41,20 @@ function img_to_disk($img_file,$disk_number) {
 
 # 选项中继方法
 function deal_choice($choice_number) {
-    if ($choice_number == '1') {
+    if ($choice_number = '1') {
         echo '1.全盘安装     2.分区安装（慎选！）'
-        $choice_number_2 == Read-Host("请输入") # if中赋值第二层传参
+        $choice_number_2 = Read-Host("请输入") # if中赋值第二层传参
+        if ($choice_number_2 = '1') {
+        # 获取硬盘物理路径
+        get_disks
+              }
+
     }
 
     # 备份区域未添加，请等待后续版本 20240227
-    elseif ($choice_number == '2') {
+    elseif ($choice_number = '2') {
         echo '1.全盘备份     2.分区备份'
-        $choice_number_2 == Read-Host("请输入") # if中赋值第二层传参
+        $choice_number_2 = Read-Host("请输入") # if中赋值第二层传参
     }
 }
 
